@@ -1,4 +1,6 @@
 const express = require('express');
+var cors = require('cors');
+
 const app = express();
 const bodyParser = require('body-Parser');
 const morgan = require('morgan');
@@ -6,6 +8,7 @@ const productRoute = require('./routes/product.js');
 const usersRoute = require('./routes/User.js');
 const orderRoute = require('./routes/order.js');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
